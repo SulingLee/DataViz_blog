@@ -1,0 +1,131 @@
+1. Introduction 
+
+International merchandise trade statistics are indicative of Singapore's competitiveness in the global economic system. 
+Our top trading countries, as consumers and producers, are important partners for economic growth and stabilty. 
+
+In this data visualisation makeover, we tasked to explore and revise the stacked area chart created by data from the Department of Statistics, Singapore (DOS), for merchandise trade. 
+
+2. Evaluation of Original Visualisation 
+
+We start by exploring the original visualisation (Figure 1) in terms of **clarity** and **aesthetics**. 
+
+2.1 Clarity
+
+1. The title of the graph is inaccurate and vague. Firstly, the title does not indicate if the these countries are top six in terms of Exports or Imports. Next, closer inspection of the dataset reveals that Hong Kong does not qualify as a top trading partner for 2019-2020 (Figure 2).
+2. There are two y-axes provided for each sub-plot and each y-axis is scaled differently for Exports and Imports, making it diffcult to compare the country's Exports and Imports. 
+3. The y-axes are also scaled differently accross the sub-plots, making comparisons between countries difficult. 
+4. The x-axes are not scaled proportionaly for comparison. In particular, Japan has only one year's of trade statistics displayed. The other countries has two years's data but the different lengths of the x-axis makes Mainland China and Malaysia appear longer than the rest. 
+5. The label of the x-axes indicate months but only the years are shown. In particular, the x-axis for Japan spans only one year instead of the period "2019-2020" shown. 
+6. The sub-graphs do not apppear as if they are ordered in any meaningful way. Countries could be ordered from first to last to better reflect the title. 
+
+
+2.2 Aesthetic
+
+1. There is poor use of stacked area chart and colours. As there are many overlapping regions and they are coloured differently, it appears as if there are three measures for each sub-graph.  
+2. The sub-title of each sub-graph is not aligned to the center of each sub-graph.
+3. No tick marks are used on the y-axes even though they are of a continuous numerical scale. 
+4. The x-axis is labeled at the start of each year instead of the middle even though it is for a categorical scale. This results in the graph appearing as if it spans from mid-2019 to mid-2021. 
+4. The title is of a smaller font size than the names of countries, leading to a de-emphasis of the purpose of the visualisation. 
+
+3. Proposed Representation 
+
+The proposed design is as follows (Figure 3). 
+
+3.1 Clarity 
+
+1. Title and sub-title 
+2. x-axis - time series, identification of seasonality 
+3. y-axis
+4. Japan
+5. Choice of graph 
+
+
+3.2 Aesthetic
+
+1. Colour used to differentiate between Exports and Imports. 
+2. Size of points used to show the relative value of the trade. 
+3. Alignment 
+4. Labels and tick marks
+
+4. Step-by-Step Guide
+
+In this section, we will show how the plot is created in Tableau. 
+
+5. Derived Insights
+
+1. Changes in top trading partner. 
+2. seasonality 
+3. Changes to export and import value. 
+
+In this article, we will show you how to plot a figure with multiple histograms by using ggplot2 and ggpubr packages. 
+
+
+2.0 Installing and Launching R Packages
+
+Before you get started, you are required:
+
+to start a new R project, and
+to create a new R Markdown document.
+
+Next, you will use the code chunk below to install and launch ggpubr and tidyverse in RStudio.
+
+# R code 
+packages = c('ggpubr', 'tidyverse')
+
+for(p in packages){library
+  if(!require(p, character.only = T)){
+    install.packages(p)
+  }
+  library(p, character.only = T)
+}
+
+
+3.0 Importing and Preparing The Data Set 
+
+In this hands-on exercise, the [Wine Quality Data Set](https://archive.ics.uci.edu/ml/datasets/wine+quality) of UCI Machine Learning Repository will be used.  The data set consists of 13 variables and 6497 observations.  For the purpose of this exercise, we have combined the red wine and white wine data into one data file.  It is called wine_quality and is in csv file format.  
+
+
+3.1 Importing Data
+
+First, let us import the data into R by using read_csv() of readr package.  
+
+
+# R code
+wine <- read_csv("data/wine_quality.csv")
+
+
+Notice that beside quality and type, the rest of the variables are numerical and continuous data type. 
+
+
+4.0 Univariate EDA with Histogram
+
+In the figure below, multiple histograms are plottted by using ggplot() and geom_histogram() of ggplot2 package.  Then, ggarrange() of ggpubr package is used to patch these histogram into a single figure to reveal the distribution of the selected variables in the wine quality data sets.  
+
+# Rcode
+fa <- ggplot(data=wine, aes(x= `fixed acidity`)) +
+  geom_histogram(bins=20, color="black", fill="light blue")
+va <- ggplot(data=wine, aes(x= `volatile acidity`)) +
+  geom_histogram(bins=20, color="black", fill="light blue")
+ca <- ggplot(data=wine, aes(x= `citric acid`)) +
+  geom_histogram(bins=20, color="black", fill="light blue")
+rs <- ggplot(data=wine, aes(x= `residual sugar`)) +
+  geom_histogram(bins=20, color="black", fill="light blue")
+ch <- ggplot(data=wine, aes(x= `chlorides`)) +
+  geom_histogram(bins=20, color="black", fill="light blue")
+fSO2 <- ggplot(data=wine, aes(x= `free sulfur dioxide`)) +
+  geom_histogram(bins=20, color="black", fill="light blue")
+tSO2 <- ggplot(data=wine, aes(x= `total sulfur dioxide`)) +
+  geom_histogram(bins=20, color="black", fill="light blue")
+density <- ggplot(data=wine, aes(x= density)) +
+  geom_histogram(bins=20, color="black", fill="light blue")
+pH <- ggplot(data=wine, aes(x= pH)) +
+  geom_histogram(bins=20, color="black", fill="light blue")
+sulphates <- ggplot(data=wine, aes(x= sulphates)) +
+  geom_histogram(bins=20, color="black", fill="light blue")
+alcohol <- ggplot(data=wine, aes(x= alcohol)) +
+  geom_histogram(bins=20, color="black", fill="light blue")
+
+ggarrange(fa, va, ca, rs, ch, fSO2, tSO2, density, pH, sulphates, alcohol, 
+          ncol = 4, nrow = 3)
+
+

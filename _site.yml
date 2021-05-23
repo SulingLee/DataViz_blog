@@ -1,7 +1,7 @@
 name: "DataViz_blog"
 title: "DataViz Makeover"
 description: |
-  DataViz Blog
+  Exploring data through visual represenation with Tableau and R statistical computing environment.
 output_dir: "_site"
 navbar:
   right:
