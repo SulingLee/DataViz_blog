@@ -2132,7 +2132,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <p>We start by exploring the original visualisation in terms of <strong>clarity</strong> and <strong>aesthetics</strong>.</p>
 <h2 id="clarity">2.1 Clarity</h2>
 <ol type="1">
-<li>The title of the graph is inaccurate and vague. Firstly, the title does not indicate if the these countries are top six in terms of Exports or Imports. Next, closer inspection of the dataset reveals that these countries are not top in terms of Exports or Imports.</li>
+<li>The title of the graph is inaccurate and vague. Firstly, the title does not indicate if these countries are top six in terms of Exports or Imports. Next, closer inspection of the dataset reveals that these countries are not top in terms of Exports or Imports.</li>
 </ol>
 <table>
 <thead>
@@ -2169,15 +2169,15 @@ document.addEventListener('DOMContentLoaded', function() {
 <li>The title and subtitle sets the context of the visualization. Since this is about trade, major events that have affected trade will be mentioned here to set the context for understanding the visualization. As the countries are not the top 6, we will just name them as the top countries.</li>
 <li>The main panel shows a quick summary for easy comparison between countries across the two years. The right panel presents a detailed look into the trends which would be otherwise lost in the summarized view. To make the appearance less cluttered we will make use of the pop-up boxes to display the values of points of interest.</li>
 <li>X-axis showing both dates and countries allow for easy comparison across both dimensions.</li>
-<li>Y-axis shows the relative value of Exports and Imports with their difference being the Balance of Trade. This allows reads to quickly assess which countries have contributed more in terms of overall trade balance.</li>
-<li>Choice of a Gantt bar chart shows the relationship between the variables in a simple summary. The detailed time series will show the impact of major events on trade and the trend lines for a more in depth understanding of each country.</li>
+<li>Y-axis shows the relative value of Exports and Imports with their difference being the Balance of Trade. This allows readers to quickly assess which countries have contributed more in terms of overall trade balance.</li>
+<li>Choice of a Gantt bar chart shows the relationship between the variables in a simple summary. The detailed time series will show the impact of major events on trade and their trends for a more in-depth understanding of each country.</li>
 </ol>
 <h2 id="aesthetic-1">3.2 Aesthetic</h2>
 <ol type="1">
-<li>Colours are used to differentiate between Exports and Imports and bring attention to growth trends. Red and dark colours are used sparingly to focus the readers on key insights.</li>
+<li>Colours are used to differentiate between Exports and Imports and brings attention to growth trends. Red and dark colours are used sparingly to focus the readers on key insights.</li>
 <li>A gradient colour for Balance of Trade allow for quick interpretation of positive or negative values.</li>
-<li>Scale the detailed time series graph to be smaller than the main summary to lend more emphasis to the summary.</li>
-<li>Coordinate the colours in both charts so that it is more intuitive to understand and earlier to interpret the association between them.<br />
+<li>Scaling the time series graph to be smaller than the main summary lends more emphasis to the summary.</li>
+<li>Coordinate the colours in both charts so that it is more intuitive to understand and easier to interpret the relationships between them.<br />
 </li>
 <li>Reference lines are used judicially to direct attention to what is important for comparison.</li>
 </ol>
@@ -2185,9 +2185,10 @@ document.addEventListener('DOMContentLoaded', function() {
 <h2 id="data-cleaning">Data Cleaning</h2>
 <ol type="1">
 <li>Open the data file in Excel. Extract only the relevant countries (Mainland China, Malaysia, United States, Taiwan, Japan and Hong Kong) for the period from 2019 Jan to 2020 Dec from both the Import and Export sheets. There are no missing values in the table. Save and close the Excel spreadsheet.</li>
-<li>In Tableau, create a new workbook and click ‘Connect to Data’. Choose ‘file type’ then ‘file name’ and select our excel spreadsheet ‘viz1_clean.xlsx’. In the ‘Data Source’ tab, drag the table that we want (extracted Imports) into the workspace. <img src="img/5.jpg" width="400" /></li>
+<li>In Tableau, create a new workbook and click ‘Connect to Data’. Choose ‘file type’ then ‘file name’ and select our Excel spreadsheet ‘viz1_clean.xlsx’. In the ‘Data Source’ tab, drag the table that we want (extracted Imports) into the workspace. <img src="img/5.jpg" width="400" /></li>
 <li>Open tab ‘Sheet 1’ and use Tableau to pivot the table, with ‘Measure Values’ in columns and ‘Variables’ in ‘Rows’. <img src="img/6.jpg" width="300" /> Remove ‘CNT’ from ‘Measure Values’ by right-click and selecting ‘remove’. <img src="img/7.jpg" width="300" /></li>
-<li>View the pivoted table by ‘Analysis’ &gt; ‘View Data’. <img src="img/8.jpg" width="300" /></li>
+<li>View the pivoted table by ‘Analysis’ &gt; ‘View Data’.<br />
+<img src="img/8.jpg" width="300" /></li>
 <li>Export the data and save the file as “Import.csv”.</li>
 <li>Repeat steps 1 – 5 for Exports. Open the csv files in Excel, add a new column ‘Source’ to indicate if the data is for ‘Export’ or ‘Import’. <img src="img/9.jpg" width="300" /></li>
 <li>Reference lines are useful so that the reader can use that to do comparisons between the charts quickly in our trellis plot. We will find the value of average Import and Export values in Excel instead of Tableau as it is a fixed value and not a field. <img src="img/10.jpg" width="300" /></li>
