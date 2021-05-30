@@ -117,7 +117,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["datavizmakeover-1_files/anchor-4.2.2/anchor.min.js","datavizmakeover-1_files/bowser-1.9.3/bowser.min.js","datavizmakeover-1_files/distill-2.2.21/template.v2.js","datavizmakeover-1_files/header-attrs-2.7/header-attrs.js","datavizmakeover-1_files/jquery-1.11.3/jquery.min.js","datavizmakeover-1_files/popper-2.6.0/popper.min.js","datavizmakeover-1_files/tippy-6.2.7/tippy-bundle.umd.min.js","datavizmakeover-1_files/tippy-6.2.7/tippy-light-border.css","datavizmakeover-1_files/tippy-6.2.7/tippy.css","datavizmakeover-1_files/tippy-6.2.7/tippy.umd.min.js","datavizmakeover-1_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["datavizmakeover-1_files/anchor-4.2.2/anchor.min.js","datavizmakeover-1_files/bowser-1.9.3/bowser.min.js","datavizmakeover-1_files/distill-2.2.21/template.v2.js","datavizmakeover-1_files/header-attrs-2.7/header-attrs.js","datavizmakeover-1_files/jquery-1.11.3/jquery.min.js","datavizmakeover-1_files/popper-2.6.0/popper.min.js","datavizmakeover-1_files/tippy-6.2.7/tippy-bundle.umd.min.js","datavizmakeover-1_files/tippy-6.2.7/tippy-light-border.css","datavizmakeover-1_files/tippy-6.2.7/tippy.css","datavizmakeover-1_files/tippy-6.2.7/tippy.umd.min.js","datavizmakeover-1_files/webcomponents-2.0.0/webcomponents.js","img/1.jpg","img/10.jpg","img/11.jpg","img/12.jpg","img/13.jpg","img/14.jpg","img/15.jpg","img/16.jpg","img/17.jpg","img/18.jpg","img/19.jpg","img/2.jpg","img/20.jpg","img/21.jpg","img/22.jpg","img/23.jpg","img/24.jpg","img/25.jpg","img/26.jpg","img/27.jpg","img/28.jpg","img/29.jpg","img/3.jpg","img/30.jpg","img/31.jpg","img/32.jpg","img/33.jpg","img/34.jpg","img/35.jpg","img/36.jpg","img/37.jpg","img/38.jpg","img/39.jpg","img/4.jpg","img/40.jpg","img/41.jpg","img/42.jpg","img/5.jpg","img/6.jpg","img/7.jpg","img/8.jpg","img/9.jpg"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2098,28 +2098,100 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 
 <div class="d-article">
-<p>1.0 Overview</p>
-<p>In this article, we will show you how to plot a figure with multiple histograms by using ggplot2 and ggpubr packages.</p>
-<p>2.0 Installing and Launching R Packages</p>
-<p>Before you get started, you are required:</p>
-<p>to start a new R project, and to create a new R Markdown document.</p>
-<p>Next, you will use the code chunk below to install and launch ggpubr and tidyverse in RStudio.</p>
-<h1 id="r-code">R code</h1>
-<p>packages = c(‘ggpubr’, ‘tidyverse’)</p>
-<p>for(p in packages){library if(!require(p, character.only = T)){ install.packages(p) } library(p, character.only = T) }</p>
-<p>3.0 Importing and Preparing The Data Set</p>
-<p>In this hands-on exercise, the <a href="https://archive.ics.uci.edu/ml/datasets/wine+quality">Wine Quality Data Set</a> of UCI Machine Learning Repository will be used. The data set consists of 13 variables and 6497 observations. For the purpose of this exercise, we have combined the red wine and white wine data into one data file. It is called wine_quality and is in csv file format.</p>
-<p>3.1 Importing Data</p>
-<p>First, let us import the data into R by using read_csv() of readr package.</p>
-<h1 id="r-code-1">R code</h1>
-<p>wine &lt;- read_csv(“data/wine_quality.csv”)</p>
-<p>Notice that beside quality and type, the rest of the variables are numerical and continuous data type.</p>
-<p>4.0 Univariate EDA with Histogram</p>
-<p>In the figure below, multiple histograms are plottted by using ggplot() and geom_histogram() of ggplot2 package. Then, ggarrange() of ggpubr package is used to patch these histogram into a single figure to reveal the distribution of the selected variables in the wine quality data sets.</p>
-<h1 id="rcode">Rcode</h1>
-<p>fa &lt;- ggplot(data=wine, aes(x= <code>fixed acidity</code>)) + geom_histogram(bins=20, color=“black”, fill=“light blue”) va &lt;- ggplot(data=wine, aes(x= <code>volatile acidity</code>)) + geom_histogram(bins=20, color=“black”, fill=“light blue”) ca &lt;- ggplot(data=wine, aes(x= <code>citric acid</code>)) + geom_histogram(bins=20, color=“black”, fill=“light blue”) rs &lt;- ggplot(data=wine, aes(x= <code>residual sugar</code>)) + geom_histogram(bins=20, color=“black”, fill=“light blue”) ch &lt;- ggplot(data=wine, aes(x= <code>chlorides</code>)) + geom_histogram(bins=20, color=“black”, fill=“light blue”) fSO2 &lt;- ggplot(data=wine, aes(x= <code>free sulfur dioxide</code>)) + geom_histogram(bins=20, color=“black”, fill=“light blue”) tSO2 &lt;- ggplot(data=wine, aes(x= <code>total sulfur dioxide</code>)) + geom_histogram(bins=20, color=“black”, fill=“light blue”) density &lt;- ggplot(data=wine, aes(x= density)) + geom_histogram(bins=20, color=“black”, fill=“light blue”) pH &lt;- ggplot(data=wine, aes(x= pH)) + geom_histogram(bins=20, color=“black”, fill=“light blue”) sulphates &lt;- ggplot(data=wine, aes(x= sulphates)) + geom_histogram(bins=20, color=“black”, fill=“light blue”) alcohol &lt;- ggplot(data=wine, aes(x= alcohol)) + geom_histogram(bins=20, color=“black”, fill=“light blue”)</p>
-<p>ggarrange(fa, va, ca, rs, ch, fSO2, tSO2, density, pH, sulphates, alcohol, ncol = 4, nrow = 3)</p>
-<p>Learn more about using Distill at <a href="https://rstudio.github.io/distill" class="uri">https://rstudio.github.io/distill</a>.</p>
+<h1 id="introduction">1. Introduction</h1>
+<p>International merchandise trade statistics are indicative of Singapore’s competitiveness in the global economic system. Our top trading countries, as consumers and producers, are important partners for economic growth and stabilty.</p>
+<p>In this data visualisation makeover, we are tasked to explore and revise the stacked area chart created by data from the Department of Statistics, Singapore (DOS), for merchandise trade shown below.</p>
+<p><img src="img/1.jpg" /> <a href="https://www.singstat.gov.sg/find-data/search-by-theme/trade-and-investment/merchandise-trade/latest-data">Source</a></p>
+<h1 id="evaluation-of-original-visualisation">2. Evaluation of Original Visualisation</h1>
+<p>We start by exploring the original visualisation in terms of <strong>clarity</strong> and <strong>aesthetics</strong>.</p>
+<h2 id="clarity">2.1 Clarity</h2>
+<ol type="1">
+<li>The title of the graph is inaccurate and vague. Firstly, the title does not indicate if the these countries are top six in terms of Exports or Imports. Next, closer inspection of the dataset reveals that these countries are not top in terms of Exports or Imports.</li>
+</ol>
+<table>
+<thead>
+<tr class="header">
+<th>Exports</th>
+<th>Imports</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><img src="img/2.jpg" width="300" /></td>
+<td><img src="img/3.jpg" width="300" /></td>
+</tr>
+</tbody>
+</table>
+<ol start="2" type="1">
+<li><p>There are two y-axes provided for each sub-plot and each y-axis is scaled differently for Exports and Imports, making it difficult to compare the country’s Exports and Imports. The y-axes are also scaled differently across the sub-plots, making comparisons between countries difficult.</p></li>
+<li><p>The x-axes are not scaled proportionally for comparison. In particular, Japan has only one year’s of trade statistics displayed. The other countries has two year’s data but the different lengths of the x-axis makes Mainland China and Malaysia appear longer than the rest.</p></li>
+<li><p>The label of the x-axes indicate months but only the years are shown. This makes it difficult to tell if there are missing dates in data that are causing the x-axis to be shorter for some countries.</p></li>
+<li><p>The sub-graphs do not appear as if they are ordered in any meaningful way. Countries could be ordered from first to last to better reflect the title.</p></li>
+</ol>
+<h2 id="aesthetic">2.2 Aesthetic</h2>
+<ol type="1">
+<li><p>There is poor use of stacked area chart and colours. As there are many overlapping regions and they are coloured differently, it appears as if there are three measures for each sub-graph.</p></li>
+<li><p>The sub-title of each sub-graph is not aligned to the center of each sub-graph.</p></li>
+<li><p>No tick marks are used on the y-axes even though they are of a continuous numerical scale.</p></li>
+<li><p>The x-axis is labeled at the start of each year instead of the middle even though it is for a categorical scale. This results in the graph appearing as if it spans from mid-2019 to mid-2021.</p></li>
+<li><p>The title is of a smaller font size than the names of countries when it should be the emphasis for this visualization.</p></li>
+</ol>
+<h1 id="proposed-representation">3. Proposed Representation</h1>
+<p>The proposed design is as follows. <img src="img/4.jpg" /></p>
+<h2 id="clarity-1">3.1 Clarity</h2>
+<ol type="1">
+<li>Title and sub-title Sets the context of the visualization. Since this is about trade, major events that have affected trade would be mentioned here to set the context to understanding the visualization. As the countries are not the top 6, we will just name them as the top countries.</li>
+<li>The main panel shows a quick summary for easy comparison between countries across the two years. The right panel presents a detailed look into the trends which would be otherwise lost in the summarized view. To make the appearance less cluttered we will make use of the pop-up boxes to display the values of points of interest.</li>
+<li>X-axis showing both dates and countries allow for easy comparison across both dimensions.</li>
+<li>Y-axis shows the relative value of Exports and Imports with their difference being the Balance of Trade. This allows reads to quickly assess which countries have contributed more in terms of overall trade balance.</li>
+<li>Choice of a Gantt bar chart shows the relationship between the variables in a simple summary. The detailed time series will show the impact of major events on trade and the trend lines for a more in depth understanding of each country.</li>
+</ol>
+<h2 id="aesthetic-1">3.2 Aesthetic</h2>
+<ol type="1">
+<li>Colour used to differentiate between Exports and Imports and bring attention the growth trends.</li>
+<li>A gradient colour for Balance of Trade allow for quick interpretation of positive or negative periods.</li>
+<li>Set the detailed time series graph to be smaller than the main summary to lend more emphasis to the summary.</li>
+<li>Coordinate the colours in both charts so that it is more intuitive to read and earlier to interpret the association between them.<br />
+</li>
+<li>Use reference lines are used judicially to direct attention to what is important for comparison.</li>
+</ol>
+<h1 id="step-by-step-guide">4. Step-by-Step Guide</h1>
+<h2 id="data-cleaning">Data Cleaning</h2>
+<ol type="1">
+<li>Open the data file in Excel. Extract only the relevant countries (Mainland China, Malaysia, United States, Taiwan, Japan and Hong Kong) for the period from 2019 Jan to 2020 Dec from both the Import and Export sheets. There are no missing values in the table. Save and close the Excel spreadsheet.</li>
+<li>In Tableau, create a new workbook and click ‘Connect to Data’. Choose ‘file type’ then ‘file name’ and select our excel spreadsheet ‘viz1_clean.xlsx’. In the ‘Data Source’ tab, drag the table that we want (extracted Imports) into the workspace. <img src="img/5.jpg" width="400" /></li>
+<li>Open tab ‘Sheet 1’ and use Tableau to pivot the table, with ‘Measure Values’ in columns and ‘Variables’ in ‘Rows’. <img src="img/6.jpg" width="300" /> Remove ‘CNT’ from ‘Measure Values’ by right-click and selecting ‘remove’. <img src="img/7.jpg" width="300" /></li>
+<li>View the pivoted table by ‘Analysis’ &gt; ‘View Data’. <img src="img/8.jpg" width="300" /></li>
+<li>Export the data and save the file as “Import.csv”.</li>
+<li>Repeat steps 1 – 5 for Exports. Open the csv files in Excel, add a new column ‘Source’ to indicate if the data is for ‘Export’ or ‘Import’. <img src="img/9.jpg" width="300" /></li>
+<li>Reference lines are useful so that the reader can use that to do comparisons between the charts quickly in our trellis plot. We will find the value of average Import and Export values in Excel instead of Tableau as it is a fixed value and not a field. <img src="img/10.jpg" width="300" /></li>
+<li>Import the cleaned dataset into Tableau. ## Create a Gantt Bar plot showing Export, Import and Balance of Trade by year</li>
+<li>The datatype for ‘Date’ is incorrect. Change by clicking on the icon and selecting ‘date’. <img src="img/11.jpg" width="400" /></li>
+<li>Balance of trade is the difference between the value of a country’s exports and imports and is useful for assessing how Singapore’s trade partners contributes to our country’s balance of payments. Create a new variable to show the balance of trade. In tab ‘Sheet 1’, from ‘Analysis’ &gt; ‘Create Calculated Field’. <img src="img/12.jpg" width="300" /></li>
+<li>Add ‘Date’ to ‘Columns’. Right-click on ‘YEAR(Date)’ pill to change it to ‘MONTH(Date)’. <img src="img/13.jpg" width="200" /></li>
+<li>Drag ‘Measure Values’ to ‘Rows’. In the ‘Measure Values’ panel, remove ‘CNT’ and SUM(Balance) by right-clicking and select ‘Remove’. The line graph is automatically selected. <img src="img/14.jpg" width="300" /></li>
+<li>Drag ‘Measure Names’ to ‘Color’ in the ‘Marks’ panel so that the line graphs for Export and Import are coloured differently. <img src="img/15.jpg" width="200" /></li>
+<li>Click on ‘color’ to customise the appearance of the line graph. <img src="img/16.jpg" width="300" /></li>
+<li>Drag ‘Import’ to the front of ‘Measure Values’ in ‘Rows’. <img src="img/17.jpg" width="200" /></li>
+<li>In the ‘Marks’ panel, click on ‘SUM(Import)’. Change the plot type to ‘Gantt Bar’. Drag ‘Balance’ to ‘Color’ and also to ‘Size’. <img src="img/18.jpg" width="300" /></li>
+<li>As ‘Balance’ should reflect if the balance of trade for that period if positive or negative, we will customise the colour as follows: Click on ‘Color’ &gt; ‘Edit Colors’. <img src="img/19.jpg" width="300" /> Click on ‘Advanced’ and center the colour scale at 0 to reflect when there is positive or negative balance of trade. In the Gantt plot, red represents the period when Import exceeds Export, and blue when Export exceeds Import. <img src="img/20.jpg" width="300" /></li>
+<li>We will merge the two plots by clicking on ‘Measure Values’ in ‘Rows’ and selecting ‘Dual Axis’. Next, we will click on the y-axis on the right of the plot and select ‘Synchronize Axis’. <img src="img/21.jpg" width="400" /> <img src="img/22.jpg" width="200" /></li>
+<li>Add the reference line to show average Export and average Import. Right-click y-axis and select ‘Add Reference Line’. In the field ‘Value’, select ‘SUM(Import)’. <img src="img/23.jpg" width="200" /> Select a dashed line to differentiate it from the line graph and select the same colour as Import.</li>
+<li>Drag ‘SUM(Export)’ to ‘Detail’ in the Marks panel for ‘SUM(Import)’. Right-click y-axis and select ‘Add Reference Line’. Set the parameters as follows: <img src="img/24.jpg" width="200" /> Select a dashed line and match the colour to the line graph for Export. Repeat to obtain a reference line for Balance of Trade. <img src="img/25.jpg" width="200" /></li>
+<li>Format reference lines. Right click on ‘Average Exports’, select ‘Format’. In the pop-up panel, set as follows: <img src="img/26.jpg" width="300" /> As the values from our source data are in thousand dollars, we will include ‘$’ prefix and ‘K’ suffix. Repeat for ‘Average Imports’ and ‘Average BOT’.</li>
+<li>Format ‘Export’, ‘Import’ and ‘Balance’ similarly. For ‘Measure Values’ in the ‘Marks’ panel, right click on ‘SUM(Export)’. Select ‘Format’. <img src="img/27.jpg" width="180" /> In the pop-up panel, select the ‘Pane’ tab. Set the values as currency as follows: <img src="img/28.jpg" width="300" /></li>
+<li>Save and duplicate this as ‘Sheet 1(2)’. We will use ‘Sheet 1(2)’ to create a time series for each country.</li>
+<li>Drag ‘Country’ to ‘Columns’.</li>
+<li>Click on the y-axis ‘Import(Thousand Dollars)’ to sort in descending order.</li>
+<li>Edit ‘Tooltip’ for ‘SUM(Import)’ in Marks panel. Click on ‘tooltip’ and remove irrelevant fields. Append “$” and “K” to indicate that values are in thousands. <img src="img/29.jpg" width="300" /></li>
+<li>To improve the aesthetic, ‘SUM(Import)’ in ‘Marks’ pane, click ‘Size’ and increase the width of the bars. <img src="img/30.jpg" width="200" /> Click ‘Color’ and reduce the opacity of the bars. <img src="img/31.jpg" width="200" /></li>
+<li>Remove header by right-click ‘Year of Date/ Country’, select ‘Hide Field Labels for Columns’. <img src="img/32.jpg" width="300" /></li>
+<li>Add a proper title. Click on the title and in the ‘Edit Title’ pop-up box, add a title and format it. <img src="img/33.jpg" width="300" /></li>
+<li>Right-click on the x-axis, select ‘Format’. Make country names more visible by increasing the font size. <img src="img/34.jpg" width="200" /> In the ‘Columns’ tab, add vertical grid lines so that it will be easier to tell the countries apart. Match the appearance of the horizontal grid lines so that they will not detract from the plots. <img src="img/35.jpg" width="300" /></li>
+<li>Rename legend for ‘SUM(Balance)’ to ‘Balance of Trade’ using ‘Edit Title’. <img src="img/36.jpg" width="300" /></li>
+<li>Rename legend for ‘Measure Names’ to ‘Merchandise Trade’. <img src="img/37.jpg" width="300" /></li>
+<li>To show the percentage growth for Exports from 2019 to 2020. Drag ‘Export’ pill to ‘Rows’. <img src="img/38.jpg" width="300" /> Click on ‘Export’, ‘Quick Table Calculation’ then ‘Percent Difference’. <img src="img/39.jpg" width="300" /> Click on ‘Export’ again, select ‘Compute Using’ then ‘Date’. <img src="img/40.jpg" width="300" /> Double-click on ‘Export’ pill and copy the formula. <img src="img/41.jpg" width="300" /> Click ‘Analysis’, ‘Create Calculated Field’. Paste the formula. <img src="img/42.jpg" width="300" /></li>
+</ol>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
