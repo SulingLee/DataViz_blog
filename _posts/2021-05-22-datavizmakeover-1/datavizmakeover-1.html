@@ -1571,62 +1571,142 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <img src="img/8.jpg" width="300" /></li>
 <li>Export the data and save the file as “Import.csv”.</li>
 <li>Repeat steps 1 – 5 for Exports. Open the csv files in Excel, add a new column ‘Source’ to indicate if the data is for ‘Export’ or ‘Import’. <img src="img/9.jpg" width="300" /></li>
-<li>Reference lines are useful so that the reader can use that to do comparisons between the charts quickly in our trellis plot. We will find the value of average Import and Export values in Excel instead of Tableau as it is a fixed value and not a field. <img src="img/10.jpg" width="300" /></li>
+<li>Reference lines are useful for the reader to do comparisons between the charts quickly in our trellis plot. We will find the value of average Import and Export values in Excel instead of Tableau as it is a fixed value and not a field. <img src="img/10.jpg" width="300" /></li>
 <li>Import the cleaned dataset into Tableau.</li>
 </ol>
 <h2 id="create-a-gantt-bar-plot-showing-export-import-and-balance-of-trade-by-year">Create a Gantt Bar plot showing Export, Import and Balance of Trade by year</h2>
 <ol start="9" type="1">
 <li>The datatype for ‘Date’ is incorrect. Change by clicking on the icon and selecting ‘date’. <img src="img/11.jpg" width="400" /></li>
-<li>Balance of trade is the difference between the value of a country’s exports and imports and is useful for assessing how Singapore’s trade partners contributes to our country’s balance of payments. Create a new variable to show the balance of trade. In tab ‘Sheet 1’, from ‘Analysis’ &gt; ‘Create Calculated Field’. <img src="img/12.jpg" width="300" /></li>
+<li>Balance of trade is the difference between the value of a country’s exports and imports and is useful for assessing how Singapore’s trade partners contributes to our country’s balance of payments. Create a new variable to show the balance of trade. In tab ‘Sheet 1’, from ‘Analysis’ &gt; ‘Create Calculated Field’.<br />
+<img src="img/12.jpg" width="300" /></li>
 <li>Add ‘Date’ to ‘Columns’. Right-click on ‘YEAR(Date)’ pill to change it to ‘MONTH(Date)’. <img src="img/13.jpg" width="200" /></li>
-<li>Drag ‘Measure Values’ to ‘Rows’. In the ‘Measure Values’ panel, remove ‘CNT’ and SUM(Balance) by right-clicking and select ‘Remove’. The line graph is automatically selected. <img src="img/14.jpg" width="300" /></li>
-<li>Drag ‘Measure Names’ to ‘Color’ in the ‘Marks’ panel so that the line graphs for Export and Import are coloured differently. <img src="img/15.jpg" width="200" /></li>
+<li>Drag ‘Measure Values’ to ‘Rows’. In the ‘Measure Values’ panel, remove ‘CNT’ and SUM(Balance) by right-clicking and select ‘Remove’. The line graph is automatically selected.<br />
+<img src="img/14.jpg" width="300" /></li>
+<li>Drag ‘Measure Names’ to ‘Color’ in the ‘Marks’ panel so that the line graphs for Export and Import are coloured differently.<br />
+<img src="img/15.jpg" width="200" /></li>
 <li>Click on ‘color’ to customise the appearance of the line graph. <img src="img/16.jpg" width="300" /></li>
 <li>Drag ‘Import’ to the front of ‘Measure Values’ in ‘Rows’. <img src="img/17.jpg" width="200" /></li>
-<li>In the ‘Marks’ panel, click on ‘SUM(Import)’. Change the plot type to ‘Gantt Bar’. Drag ‘Balance’ to ‘Color’ and also to ‘Size’. <img src="img/18.jpg" width="300" /></li>
-<li>As ‘Balance’ should reflect if the balance of trade for that period if positive or negative, we will customise the colour as follows: Click on ‘Color’ &gt; ‘Edit Colors’. <img src="img/19.jpg" width="300" /> Click on ‘Advanced’ and center the colour scale at 0 to reflect when there is positive or negative balance of trade. In the Gantt plot, red represents the period when Import exceeds Export, and blue when Export exceeds Import. <img src="img/20.jpg" width="300" /></li>
-<li>We will merge the two plots by clicking on ‘Measure Values’ in ‘Rows’ and selecting ‘Dual Axis’. Next, we will click on the y-axis on the right of the plot and select ‘Synchronize Axis’. <img src="img/21.jpg" width="400" /> <img src="img/22.jpg" width="200" /></li>
-<li>Add the reference line to show average Export and average Import. Right-click y-axis and select ‘Add Reference Line’. In the field ‘Value’, select ‘SUM(Import)’. <img src="img/23.jpg" width="200" /> Select a dashed line to differentiate it from the line graph and select the same colour as Import.</li>
-<li>Drag ‘SUM(Export)’ to ‘Detail’ in the Marks panel for ‘SUM(Import)’. Right-click y-axis and select ‘Add Reference Line’. Set the parameters as follows: <img src="img/24.jpg" width="200" /> Select a dashed line and match the colour to the line graph for Export. Repeat to obtain a reference line for Balance of Trade. <img src="img/25.jpg" width="200" /></li>
-<li>Format reference lines. Right click on ‘Average Exports’, select ‘Format’. In the pop-up panel, set as follows: <img src="img/26.jpg" width="300" /> As the values from our source data are in thousand dollars, we will include ‘$’ prefix and ‘K’ suffix. Repeat for ‘Average Imports’ and ‘Average BOT’.</li>
-<li>Format ‘Export’, ‘Import’ and ‘Balance’ similarly. For ‘Measure Values’ in the ‘Marks’ panel, right click on ‘SUM(Export)’. Select ‘Format’. <img src="img/27.jpg" width="180" /> In the pop-up panel, select the ‘Pane’ tab. Set the values as currency as follows: <img src="img/28.jpg" width="300" /></li>
+<li>In the ‘Marks’ panel, click on ‘SUM(Import)’. Change the plot type to ‘Gantt Bar’. Drag ‘Balance’ to ‘Color’ and also to ‘Size’.<br />
+<img src="img/18.jpg" width="300" /></li>
+<li>As ‘Balance’ should reflect if the balance of trade for that period if positive or negative, we will customise the colour as follows: Click on ‘Color’ &gt; ‘Edit Colors’. <img src="img/19.jpg" width="300" /><br />
+Click on ‘Advanced’ and center the colour scale at 0 to reflect when there is positive or negative balance of trade. In the Gantt plot, red represents the period when Import exceeds Export, and blue when Export exceeds Import. <img src="img/20.jpg" width="300" /></li>
+<li>We will merge the two plots by clicking on ‘Measure Values’ in ‘Rows’ and selecting ‘Dual Axis’. Next, we will click on the y-axis on the right of the plot and select ‘Synchronize Axis’.<br />
+<img src="img/21.jpg" width="400" /> <img src="img/22.jpg" width="200" /></li>
+<li>Add the reference line to show average Export and average Import. Right-click y-axis and select ‘Add Reference Line’. In the field ‘Value’, select ‘SUM(Import)’.<br />
+<img src="img/23.jpg" width="200" /><br />
+Select a dashed line to differentiate it from the line graph and select the same colour as Import.</li>
+<li>Drag ‘SUM(Export)’ to ‘Detail’ in the Marks panel for ‘SUM(Import)’. Right-click y-axis and select ‘Add Reference Line’. Set the parameters as follows:<br />
+<img src="img/24.jpg" width="200" /><br />
+Select a dashed line and match the colour to the line graph for Export. Repeat to obtain a reference line for Balance of Trade.<br />
+<img src="img/25.jpg" width="200" /></li>
+<li>Format reference lines. Right click on ‘Average Exports’, select ‘Format’. In the pop-up panel, set as follows:<br />
+<img src="img/26.jpg" width="300" /><br />
+As the values from our source data are in thousand dollars, we will include ‘$’ prefix and ‘K’ suffix. Repeat for ‘Average Imports’ and ‘Average BOT’.</li>
+<li>Format ‘Export’, ‘Import’ and ‘Balance’ similarly. For ‘Measure Values’ in the ‘Marks’ panel, right click on ‘SUM(Export)’. Select ‘Format’.<br />
+<img src="img/27.jpg" width="180" /><br />
+In the pop-up panel, select the ‘Pane’ tab. Set the values as currency as follows:<br />
+<img src="img/28.jpg" width="300" /></li>
 <li>Save and duplicate this as ‘Sheet 1(2)’. We will use ‘Sheet 1(2)’ to create a time series for each country.</li>
 <li>Drag ‘Country’ to ‘Columns’.</li>
 <li>Click on the y-axis ‘Import(Thousand Dollars)’ to sort in descending order.</li>
-<li>Edit ‘Tooltip’ for ‘SUM(Import)’ in Marks panel. Click on ‘tooltip’ and remove irrelevant fields. Append “$” and “K” to indicate that values are in thousands. <img src="img/29.jpg" width="300" /></li>
-<li>To improve the aesthetic, ‘SUM(Import)’ in ‘Marks’ pane, click ‘Size’ and increase the width of the bars. <img src="img/30.jpg" width="200" /> Click ‘Color’ and reduce the opacity of the bars. <img src="img/31.jpg" width="200" /></li>
-<li>Remove header by right-click ‘Year of Date/ Country’, select ‘Hide Field Labels for Columns’. <img src="img/32.jpg" width="300" /></li>
-<li>Add a proper title. Click on the title and in the ‘Edit Title’ pop-up box, add a title and format it. <img src="img/33.jpg" width="300" /></li>
-<li>Right-click on the x-axis, select ‘Format’. Make country names more visible by increasing the font size. <img src="img/34.jpg" width="200" /> In the ‘Columns’ tab, add vertical grid lines so that it will be easier to tell the countries apart. Match the appearance of the horizontal grid lines so that they will not detract from the plots. <img src="img/35.jpg" width="300" /></li>
-<li>Rename legend for ‘SUM(Balance)’ to ‘Balance of Trade’ using ‘Edit Title’. <img src="img/36.jpg" width="300" /></li>
-<li>Rename legend for ‘Measure Names’ to ‘Merchandise Trade’. <img src="img/37.jpg" width="300" /></li>
-<li>To show the percentage growth for Exports from 2019 to 2020. Drag ‘Export’ pill to ‘Rows’. <img src="img/38.jpg" width="300" /> Click on ‘Export’, ‘Quick Table Calculation’ then ‘Percent Difference’. <img src="img/39.jpg" width="300" /> Click on ‘Export’ again, select ‘Compute Using’ then ‘Date’. <img src="img/40.jpg" width="300" /> Double-click on ‘Export’ pill and copy the formula. <img src="img/41.jpg" width="300" /> Click ‘Analysis’, ‘Create Calculated Field’. Paste the formula. <img src="img/42.jpg" width="300" /></li>
-<li>Apply a colour mask to show the difference between positive Export Growth and negative Export Growth for each country. Click ‘Analysis’, ‘Create Calculated Field’. <img src="img/43.jpg" width="300" /> Repeat to create another field for ‘Negative Export Growth’: <img src="img/44.jpg" width="300" /> Remove ‘SUM(Export)’ from ‘Rows’. The graph should look as before. In ‘Measure Values’ in the ‘Marks’ panel, drag both ‘Positive Export Growth’ and ‘Negative Export Growth’ to ‘Tooltips’. Add new formula for Export Growth and modify fields with changing colour. <img src="img/45.jpg" width="300" /> In the ‘Marks’ panel, right-click on ‘Positive Export Growth’ and select ‘Format’. Change the format for ‘Numbers’ to reflect percentage as follows: <img src="img/46.jpg" width="300" /> Repeats steps to change ‘Negative Export Growth’ to percentage as well. Next, we will repeat Steps 33 and 34 for Import Growth.</li>
-<li>Format ‘Tooltip’ in ‘Measure Values’ using the same colour for Export fields and the same colour for Import Fields to make the visual association stronger. <img src="img/47.jpg" width="300" /></li>
-<li>Right-click on the main graph area and select ‘Annotate’ then ‘Area’. Type insights and observations in the text area. Arrange, resize, or format the resulting text box if required. <img src="img/48.jpg" width="300" /></li>
-<li>Cite the data source in ‘Caption’. Click on ‘Caption’ and in ‘Edit Caption’ pop-up enter the following: <img src="img/49.jpg" width="300" /></li>
-<li>Completed worksheet: <img src="img/50.jpg" width="500" /></li>
+<li>Edit ‘Tooltip’ for ‘SUM(Import)’ in Marks panel. Click on ‘tooltip’ and remove irrelevant fields. Append “$” and “K” to indicate that values are in thousands.<br />
+<img src="img/29.jpg" width="300" /><br />
+</li>
+<li>To improve the aesthetic, ‘SUM(Import)’ in ‘Marks’ pane, click ‘Size’ and increase the width of the bars.<br />
+<img src="img/30.jpg" width="200" /><br />
+Click ‘Color’ and reduce the opacity of the bars.<br />
+<img src="img/31.jpg" width="200" /><br />
+</li>
+<li>Remove header by right-click ‘Year of Date/ Country’, select ‘Hide Field Labels for Columns’.<br />
+<img src="img/32.jpg" width="300" /></li>
+<li>Add a proper title. Click on the title and in the ‘Edit Title’ pop-up box, add a title and format it.<br />
+<img src="img/33.jpg" width="300" /></li>
+<li>Right-click on the x-axis, select ‘Format’. Make country names more visible by increasing the font size.<br />
+<img src="img/34.jpg" width="200" /> In the ‘Columns’ tab, add vertical grid lines so that it will be easier to tell the countries apart. Match the appearance of the horizontal grid lines so that they will not detract from the plots.<br />
+<img src="img/35.jpg" width="300" /></li>
+<li>Rename legend for ‘SUM(Balance)’ to ‘Balance of Trade’ using ‘Edit Title’.<br />
+<img src="img/36.jpg" width="300" /></li>
+<li>Rename legend for ‘Measure Names’ to ‘Merchandise Trade’.<br />
+<img src="img/37.jpg" width="300" /></li>
+<li>To show the percentage growth for Exports from 2019 to 2020. Drag ‘Export’ pill to ‘Rows’.<br />
+<img src="img/38.jpg" width="300" /><br />
+Click on ‘Export’, ‘Quick Table Calculation’ then ‘Percent Difference’.<br />
+<img src="img/39.jpg" width="300" /><br />
+Click on ‘Export’ again, select ‘Compute Using’ then ‘Date’.<br />
+<img src="img/40.jpg" width="300" /><br />
+Double-click on ‘Export’ pill and copy the formula.<br />
+<img src="img/41.jpg" width="300" /><br />
+Click ‘Analysis’, ‘Create Calculated Field’. Paste the formula.<br />
+<img src="img/42.jpg" width="300" /><br />
+</li>
+<li>Apply a colour mask to show the difference between positive Export Growth and negative Export Growth for each country. Click ‘Analysis’, ‘Create Calculated Field’.<br />
+<img src="img/43.jpg" width="300" /><br />
+Repeat to create another field for ‘Negative Export Growth’:<br />
+<img src="img/44.jpg" width="300" /><br />
+Remove ‘SUM(Export)’ from ‘Rows’. The graph should look as before. In ‘Measure Values’ in the ‘Marks’ panel, drag both ‘Positive Export Growth’ and ‘Negative Export Growth’ to ‘Tooltips’. Add new formula for Export Growth and modify fields with changing colour.<br />
+<img src="img/45.jpg" width="300" /><br />
+In the ‘Marks’ panel, right-click on ‘Positive Export Growth’ and select ‘Format’. Change the format for ‘Numbers’ to reflect percentage as follows:<br />
+<img src="img/46.jpg" width="300" /><br />
+Repeats steps to change ‘Negative Export Growth’ to percentage as well. Next, we will repeat Steps 33 and 34 for Import Growth.</li>
+<li>Format ‘Tooltip’ in ‘Measure Values’ using the same colour for Export fields and the same colour for Import Fields to make the visual association stronger.<br />
+<img src="img/47.jpg" width="300" /><br />
+</li>
+<li>Right-click on the main graph area and select ‘Annotate’ then ‘Area’. Type insights and observations in the text area. Arrange, resize, or format the resulting text box if required.<br />
+<img src="img/48.jpg" width="300" /><br />
+</li>
+<li>Cite the data source in ‘Caption’. Click on ‘Caption’ and in ‘Edit Caption’ pop-up enter the following:<br />
+<img src="img/49.jpg" width="300" /></li>
+<li>Completed worksheet:<br />
+<img src="img/50.jpg" width="500" /></li>
 </ol>
 <h2 id="create-timeseries-for-each-country">Create Timeseries for each country</h2>
 <p>The Gantt bar is a clean and simple visual to quickly summarise and compare trade of each country over the two years. However, the impact of global events on trade can be better understood by their time series. Hence we will create a small panel to show the time series of each country.</p>
 <ol start="39" type="1">
-<li>We pick up our makeover from the duplicated worksheet ‘Sheet 1(2)’ created in Step 22. Drag ‘Country’ to ‘Rows’. <img src="img/51.jpg" width="300" /></li>
-<li>Vertical reference lines are useful for comparing across all the countries. We create them by first converting ‘MONTH(Date)’ in ‘Columns’ to ‘continuous’. <img src="img/52.jpg" width="120" /></li>
-<li>To create vertical reference lines for the years, right-click on the y-axis and select ‘Add Reference Line’. <img src="img/53.jpg" width="120" /> Set the pop-up as follows to create a line that represents the start of 2019: <img src="img/54.jpg" width="200" /> Choose ‘Per Pane’ as it will be distracting if the label is duplicated for each country. To format the line, we choose a dash type in grey to differentiate from the solid line used in the line graphs. <img src="img/55.jpg" width="200" /> For ‘Reference Line Label’ we fix the year to the top of the chart using the customised alignment: <img src="img/56.jpg" width="300" /> Repeat the steps to create another reference line at the start of 2020.</li>
-<li>Create a reference line for COVID-19. From the time series, we observe that there are significant differences in trade around the start of 2020. The dips in the pattern of Exports and Imports are most obvious for China, United States and Malaysia. As these were also the countries deeply affected by the COVID-19 pandemic, we will insert a vertical reference line so that COVID-19 impact on trade is more obvious in the visualisation. 57 <img src="img/57.jpg" width="400" /> There were many significant events related to COVID-19 and trade globally. Since WHO declared COVID-19 a global pandemic on 11 March 2020, we will use this date to mark the period of global emergency. Right-click on the y-axis and select ‘Add Reference Line’. As shown before we will set the following for the reference line: <img src="img/58.jpg" width="300" /> Select a red dashed line. <img src="img/59.jpg" width="200" /> Right-click on ‘COVID-19’. Select ‘Format’ and match the colour of the label to the reference line. <img src="img/60.jpg" width="300" /> Align the label to the centre of the graph to make it standout from the other reference lines. <img src="img/61.jpg" width="300" /></li>
-<li>Remove the dates on the y-axis as the reference line provides sufficient context. Right click on the y-axis and de-select ‘Show Header’. <img src="img/62.jpg" width="200" /></li>
-<li>Create a title and explanations. Click on title to type and format a title to explain the graph. <img src="img/63.jpg" width="200" /></li>
-<li>Completed worksheet: <img src="img/64.jpg" width="500" /></li>
+<li>We pick up our makeover from the duplicated worksheet ‘Sheet 1(2)’ created in Step 22. Drag ‘Country’ to ‘Rows’.<br />
+<img src="img/51.jpg" width="300" /></li>
+<li>Vertical reference lines are useful for comparing across all the countries. We create them by first converting ‘MONTH(Date)’ in ‘Columns’ to ‘continuous’.<br />
+<img src="img/52.jpg" width="120" /></li>
+<li>To create vertical reference lines for the years, right-click on the y-axis and select ‘Add Reference Line’.<br />
+<img src="img/53.jpg" width="120" /> Set the pop-up as follows to create a line that represents the start of 2019:<br />
+<img src="img/54.jpg" width="200" /> Choose ‘Per Pane’ as it will be distracting if the label is duplicated for each country. To format the line, we choose a dash type in grey to differentiate from the solid line used in the line graphs.<br />
+<img src="img/55.jpg" width="200" /><br />
+For ‘Reference Line Label’ we fix the year to the top of the chart using the customised alignment:<br />
+<img src="img/56.jpg" width="300" /><br />
+Repeat the steps to create another reference line at the start of 2020.</li>
+<li>Create a reference line for COVID-19. From the time series, we observe that there are significant differences in trade around the start of 2020. The dips in the pattern of Exports and Imports are most obvious for China, United States and Malaysia. As these were also the countries deeply affected by the COVID-19 pandemic, we will insert a vertical reference line so that COVID-19 impact on trade is more obvious in the visualisation.<br />
+<img src="img/57.jpg" width="400" /><br />
+There were many significant events related to COVID-19 and trade globally. Since WHO declared COVID-19 a global pandemic on 11 March 2020, we will use this date to mark the period of global emergency. Right-click on the y-axis and select ‘Add Reference Line’. As shown before we will set the following for the reference line:<br />
+<img src="img/58.jpg" width="300" /><br />
+Select a red dashed line.<br />
+<img src="img/59.jpg" width="200" /><br />
+Right-click on ‘COVID-19’. Select ‘Format’ and match the colour of the label to the reference line.<br />
+<img src="img/60.jpg" width="300" /><br />
+Align the label to the centre of the graph to make it standout from the other reference lines.<br />
+<img src="img/61.jpg" width="300" /><br />
+</li>
+<li>Remove the dates on the y-axis as the reference line provides sufficient context. Right click on the y-axis and de-select ‘Show Header’.<br />
+<img src="img/62.jpg" width="200" /><br />
+</li>
+<li>Create a title and explanations. Click on title to type and format a title to explain the graph.<br />
+<img src="img/63.jpg" width="200" /></li>
+<li>Completed worksheet:<br />
+<img src="img/64.jpg" width="500" /></li>
 </ol>
 <h2 id="create-a-dashboard">Create a dashboard</h2>
 <ol start="46" type="1">
-<li>We use a dashboard to put two or more worksheets in the same visual. Click on the add Dashboard icon at the bottom. <img src="img/65.jpg" width="80" /></li>
-<li>For the ‘Dashboard’ tab on the left panel, drag the required worksheets to the workspace. <img src="img/66.jpg" width="400" /></li>
+<li>We use a dashboard to put two or more worksheets in the same visual. Click on the add Dashboard icon at the bottom.<br />
+<img src="img/65.jpg" width="80" /></li>
+<li>For the ‘Dashboard’ tab on the left panel, drag the required worksheets to the workspace.<br />
+<img src="img/66.jpg" width="400" /></li>
 <li>Put the focus on the trade performance measure of the top countries by making it larger. Move the legends to the bottom of the graph. To show the link between graphs, standardize the colour for the same variable. In this case, we choose the colours used in the COVID-19 worksheet as the trend lines for Export and Imports are emphasized with the darker colours. Keep only one set of legend once the variables are coloured similarly.</li>
-<li>Try out different font sizes, colour and scale of the worksheets, formatting as required to put focus on the visualization that leads to the insights.</li>
-<li>Pad the worksheets with blank whitespace around each chart to add emphasis. Drag ‘Blank’ from the ‘Objects’ panel to the gap between the two worksheets. <img src="img/67.jpg" width="200" /></li>
-<li>Add a title. Drag ‘Text’ from the ‘Objects’ panel to the top of the dashboard. <img src="img/68.jpg" width="200" /> Double-click to add a title. <img src="img/69.jpg" width="300" /></li>
-<li>The completed Dashboard: <img src="img/70.jpg" width="800" /></li>
+<li>Try out different font sizes, colours and scales for the worksheets, formatting as required to put focus on the visualization that leads to the insights.</li>
+<li>Pad the worksheets with blank whitespace around each chart to add emphasis. Drag ‘Blank’ from the ‘Objects’ panel to the gap between the two worksheets.<br />
+<img src="img/67.jpg" width="200" /></li>
+<li>Add a title. Drag ‘Text’ from the ‘Objects’ panel to the top of the dashboard.<br />
+<img src="img/68.jpg" width="200" /> Double-click to add a title.<br />
+<img src="img/69.jpg" width="300" /></li>
+<li>The completed Dashboard:<br />
+<img src="img/70.jpg" width="800" /></li>
 </ol>
 <h1 id="derived-insights">5.Derived Insights</h1>
 <ol type="1">
@@ -1634,7 +1714,9 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <a href="https://www.todayonline.com/singapore/trade-war-hit-singapore-most-se-asia-recession-2020-possibility">TodayOnline</a></p></li>
 <li><p>The ranking of the top countries by Exports did not change from 2019 to 2020. Export growth to China, Japan and Hong Kong rose modestly below ~6% while Export growth to the United States and Taiwan rose significantly by more than ~12%. Malaysia was the only country where Export growth fell by a substantial ~18% from 2019 to 2020. The United States fell from 2nd to 4th in ranking for Imports. This resulted in the United States turning from net Importer to net Exporter from March 2020, registering a small positive Balance of Trade. Import growth were negative for China, Malaysia, United States and Japan, with the United States showing the most significant ~19% dip. This is perhaps due to the fall in consumption globally due to COVID-19 restrictions.<br />
 <a href="https://www.mti.gov.sg/-/media/MTI/Resources/Economic-Survey-of-Singapore/2020/Economic-Survey-of-Singapore-First-Quarter-2020/FA_1Q20.pdf">Ministry of Trade &amp; Industry</a></p></li>
-<li><p>Once separated into individual timelines, trade differences between countries becomes more pronounced. While Exports fell, Imports to Malaysia rose only slightly at ~1% and this contributed to a negative balance of trade. Singapore is highly dependent on Malaysia for essential food supplies and demand rose during the early months of the COVID-19 pandemic due to stockpiling. On the other hand, Malaysia entered a lockdown in March 2020 due to the pandemic and the economy has yet to recover. Exports to Malaysia in 2020 remains flat and below 2019 levels. Exports to the United States shows fluctuations and this could be due to the changing demand for goods as the COVID-19 pandemic takes root in the country. China is Singapore’s top Exporter and Importer. As a major economic power, China’s Imports and Exports had dipped sharply in February 2020 when it entered a lockdown following the outbreak of COVID-19. Trade with China has since recovered in tandem with its economic recovery. Hong Kong and Taiwan trade registered the same growth trend throughout 2019 to 2020, with Taiwan growing faster. They were also least affected by COVID-19 and had kept infected low in their population. With a small and open economy that is highly dependent on trade, has since Singapore directed efforts into diversifying trade so that it is more resilient to disruptions in the global supply chain and levering on the demand of countries less affected by COVID-19 through trade pacts and partnerships. <a href="https://www.channelnewsasia.com/news/business/singapore-exports-trade-nodx-2019-economy-covid-19-12440760">ChannelNewsAsia</a> <a href="https://www.straitstimes.com/singapore/supply-chains-shifts-due-to-covid-19-will-impact-economy-but-also-present-opportunities">StraitsTimes</a></p></li>
+<li><p>Once separated into individual timelines, trade differences between countries becomes more pronounced. While Exports fell, Imports to Malaysia rose only slightly at ~1% and this contributed to a negative balance of trade. Singapore is highly dependent on Malaysia for essential food supplies and demand rose during the early months of the COVID-19 pandemic due to stockpiling. On the other hand, Malaysia entered a lockdown in March 2020 due to the pandemic and the economy has yet to recover. Exports to Malaysia in 2020 remains flat and below 2019 levels. Exports to the United States shows fluctuations and this could be due to the changing demand for goods as the COVID-19 pandemic takes root in the country. China is Singapore’s top Exporter and Importer. As a major economic power, China’s Imports and Exports had dipped sharply in February 2020 when it entered a lockdown following the outbreak of COVID-19. Trade with China has since recovered in tandem with its economic recovery. Hong Kong and Taiwan trade registered the same growth trend throughout 2019 to 2020, with Taiwan growing faster. They were also least affected by COVID-19 and had kept infected low in their population. With a small and open economy that is highly dependent on trade, has since Singapore directed efforts into diversifying trade so that it is more resilient to disruptions in the global supply chain and levering on the demand of countries less affected by COVID-19 through trade pacts and partnerships.<br />
+<a href="https://www.channelnewsasia.com/news/business/singapore-exports-trade-nodx-2019-economy-covid-19-12440760">ChannelNewsAsia</a><br />
+<a href="https://www.straitstimes.com/singapore/supply-chains-shifts-due-to-covid-19-will-impact-economy-but-also-present-opportunities">StraitsTimes</a></p></li>
 </ol>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
